@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  db:
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
+      - TZ=America/Santiago
+    container_name: db
+    restart: always
+    ports: 
+      - 27017:27017
+    volumes:
+      - db-data:/var/lib/mysql
+      - /etc/localtime:/etc/localtime
+
+volumes:
+  db-data:
